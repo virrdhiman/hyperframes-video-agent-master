@@ -1,0 +1,234 @@
+<!--
+  UI Design-Style Pack — 10 drop-in surface treatments for cards / panels / buttons.
+  Decoded from an IG reel naming the 10 dominant UI aesthetics (transcript +
+  frames in topic_fetch/ig_styles/). Each is a STYLE LANGUAGE you apply to a
+  container, not an animation — they are fully STATIC, so HyperFrames seeks them
+  with zero risk (no rAF / Date / Math.random). Use ONE per video for a fresh
+  visual fingerprint (3-day STYLE cooldown), or mix within reason.
+
+  Usage: paste this <style> block once, then add the class to a card/panel:
+    <div class="ds-card ds-glass">…</div>
+  `.ds-card` is the shared base (padding, radius, sizing). Each `.ds-*` applies
+  the look. Buttons: add `.ds-btn` + the same style class.
+
+  Themable via CSS vars on :root or the element:
+    --ds-accent (#5b8cff)  --ds-accent2 (#a855f7)
+    --ds-bg (#1c1f26)      --ds-surface (#262a33)   --ds-ink (#0d0f14)
+    --ds-text (#f4f6fb)    --ds-radius (28px)
+  Per-style vars are documented at each block. Re-tint per project palette.
+
+  THE 10 STYLES:
+    1 Skeuomorphism  2 Neumorphism   3 Glassmorphism  4 Minimalism  5 Maximalism
+    6 Brutalism      7 Liquid Glass  8 Bento Grid     9 Spatial UI  10 Claymorphism
+-->
+<style>
+  :root{
+    --ds-accent:#5b8cff; --ds-accent2:#a855f7;
+    --ds-bg:#1c1f26; --ds-surface:#262a33; --ds-ink:#0d0f14;
+    --ds-text:#f4f6fb; --ds-radius:28px;
+  }
+  /* shared base — neutral box every style overrides */
+  .ds-card{
+    box-sizing:border-box; width:520px; padding:40px;
+    border-radius:var(--ds-radius); color:var(--ds-text);
+    font-family:"Outfit","Inter",system-ui,sans-serif;
+    background:var(--ds-surface);
+  }
+  .ds-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:18px 34px; border:0; border-radius:18px; cursor:default;
+    font-family:inherit; font-weight:700; font-size:26px; color:var(--ds-text);
+  }
+
+  /* 1 ── SKEUOMORPHISM ────────────────────────────────────────────────
+     Real-world materials: brushed metal/leather, inset bevels, glossy
+     top highlight, heavy outer drop shadow. Tactile & physical.
+     vars: --ds-skeu-base (face color) */
+  .ds-skeu{
+    --ds-skeu-base:#caa46a;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 16%),
+      linear-gradient(180deg, color-mix(in srgb,var(--ds-skeu-base) 88%,#fff) 0%,
+                              var(--ds-skeu-base) 48%,
+                              color-mix(in srgb,var(--ds-skeu-base) 80%,#000) 100%);
+    color:#2a1c08;
+    border:1px solid color-mix(in srgb,var(--ds-skeu-base) 60%,#000);
+    border-top-color:color-mix(in srgb,var(--ds-skeu-base) 50%,#fff);
+    border-radius:22px;
+    box-shadow:
+      inset 0 2px 1px rgba(255,255,255,.7),
+      inset 0 -3px 6px rgba(0,0,0,.35),
+      0 14px 28px rgba(0,0,0,.45),
+      0 2px 4px rgba(0,0,0,.4);
+    text-shadow:0 1px 0 rgba(255,255,255,.4);
+  }
+  .ds-btn.ds-skeu{ border-radius:16px; padding:16px 30px; }
+
+  /* 2 ── NEUMORPHISM ──────────────────────────────────────────────────
+     Soft UI: element is the SAME color as its background, shape read
+     only from a light shadow (top-left) + dark shadow (bottom-right).
+     REQUIRES the parent bg == --ds-neu-bg. Extruded by default; add
+     .ds-neu--inset for a pressed/inset well.
+     vars: --ds-neu-bg */
+  .ds-neu{
+    --ds-neu-bg:#e0e5ec;
+    background:var(--ds-neu-bg);
+    color:#4b5566;
+    border:0; border-radius:32px;
+    box-shadow:-10px -10px 22px rgba(255,255,255,.85),
+                10px  10px 22px rgba(94,104,121,.35);
+  }
+  .ds-neu.ds-neu--inset{
+    box-shadow:inset -8px -8px 16px rgba(255,255,255,.8),
+               inset  8px  8px 16px rgba(94,104,121,.35);
+  }
+  .ds-btn.ds-neu{ border-radius:22px; }
+
+  /* 3 ── GLASSMORPHISM ────────────────────────────────────────────────
+     Frosted translucent panel over a colorful/blurred backdrop. Needs
+     something vivid BEHIND it for the blur to read. 1px light top border,
+     soft shadow, slight saturation boost.
+     vars: --ds-glass-tint (panel tint) */
+  .ds-glass{
+    --ds-glass-tint:255,255,255;
+    background:rgba(var(--ds-glass-tint),.12);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    backdrop-filter:blur(20px) saturate(160%);
+    border:1px solid rgba(255,255,255,.28);
+    border-top-color:rgba(255,255,255,.55);
+    border-radius:26px;
+    box-shadow:0 16px 40px rgba(0,0,0,.25),
+               inset 0 1px 0 rgba(255,255,255,.35);
+    color:#fff;
+  }
+  .ds-btn.ds-glass{ border-radius:18px; }
+
+  /* 4 ── MINIMALISM ───────────────────────────────────────────────────
+     Linear/Vercel clean: near-white surface, hairline border, generous
+     whitespace, one restrained accent, no shadow noise.
+     vars: --ds-min-bg, --ds-min-line */
+  .ds-min{
+    --ds-min-bg:#ffffff; --ds-min-line:#ececf0;
+    background:var(--ds-min-bg);
+    color:#16181d;
+    border:1px solid #ececf0;
+    border-radius:16px;
+    box-shadow:0 1px 2px rgba(16,18,29,.04);
+    padding:48px;
+  }
+  .ds-btn.ds-min{
+    background:#16181d; color:#fff; border-radius:10px; font-weight:600;
+  }
+
+  /* 5 ── MAXIMALISM ───────────────────────────────────────────────────
+     Spotify-Wrapped energy: vivid clashing gradient, oversized bold type,
+     black highlight blocks behind words. Loud on purpose.
+     vars: --ds-max-a, --ds-max-b (gradient ends) */
+  .ds-max{
+    --ds-max-a:#ff2e63; --ds-max-b:#7b2ff7;
+    background:linear-gradient(135deg,var(--ds-max-a),var(--ds-max-b));
+    color:#fff; border:0; border-radius:24px;
+    box-shadow:0 18px 50px rgba(123,47,247,.45);
+    font-weight:900; letter-spacing:-.02em;
+  }
+  .ds-max .ds-mark{ /* black highlight block behind a word */
+    background:#0d0f14; color:#fff; padding:2px 12px; border-radius:6px;
+    box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
+  .ds-btn.ds-max{ background:#0d0f14; border-radius:40px; }
+
+  /* 6 ── BRUTALISM ────────────────────────────────────────────────────
+     Raw web-brutalist: thick black border, HARD offset shadow (no blur),
+     zero radius, flat bright fill, mono/bold type.
+     vars: --ds-brut-fill, --ds-brut-shadow */
+  .ds-brut{
+    --ds-brut-fill:#ffe600; --ds-brut-shadow:#0d0f14;
+    background:var(--ds-brut-fill); color:#0d0f14;
+    border:4px solid #0d0f14; border-radius:0;
+    box-shadow:10px 10px 0 0 var(--ds-brut-shadow);
+    font-family:"JetBrains Mono","Courier New",monospace; font-weight:800;
+  }
+  .ds-btn.ds-brut{
+    border-radius:0; box-shadow:6px 6px 0 0 var(--ds-brut-shadow);
+    font-family:"JetBrains Mono",monospace;
+  }
+
+  /* 7 ── LIQUID GLASS (Apple iOS 26) ─────────────────────────────────
+     Glass + a refraction edge: bright specular rim, inner light bend,
+     thicker bloom than plain glass. Floats over wallpaper.
+     vars: --ds-liquid-tint */
+  .ds-liquid{
+    --ds-liquid-tint:255,255,255;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04) 40%, rgba(255,255,255,.10)),
+      rgba(var(--ds-liquid-tint),.10);
+    -webkit-backdrop-filter:blur(26px) saturate(180%) brightness(1.06);
+    backdrop-filter:blur(26px) saturate(180%) brightness(1.06);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:34px;
+    box-shadow:
+      inset 0 1px 1px rgba(255,255,255,.9),
+      inset 0 -10px 22px rgba(255,255,255,.18),
+      inset 0 0 0 1px rgba(255,255,255,.06),
+      0 22px 50px rgba(0,0,0,.30);
+    color:#fff; text-shadow:0 1px 10px rgba(0,0,0,.25);
+  }
+  .ds-btn.ds-liquid{ border-radius:999px; }
+
+  /* 8 ── BENTO GRID ──────────────────────────────────────────────────
+     Not a card look but a LAYOUT: tight grid of varied-size rounded
+     tiles, each self-contained. Apply .ds-bento to a wrapper; children
+     are .ds-bento-tile (span with --c / --r for column/row span).
+     vars: --ds-bento-gap, --ds-bento-tile (tile bg) */
+  .ds-bento{
+    --ds-bento-gap:18px; --ds-bento-tile:#262a33;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:150px; gap:var(--ds-bento-gap);
+    width:760px; padding:var(--ds-bento-gap);
+    background:var(--ds-ink); border-radius:30px;
+  }
+  .ds-bento-tile{
+    grid-column:span var(--c,1); grid-row:span var(--r,1);
+    background:var(--ds-bento-tile);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:22px; padding:22px; color:var(--ds-text);
+    box-shadow:0 2px 8px rgba(0,0,0,.35),
+               inset 0 0 60px rgba(91,140,255,.05);
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+
+  /* 9 ── SPATIAL UI (visionOS) ───────────────────────────────────────
+     Floating translucent panel with real z-depth: large soft shadow
+     CAST onto the scene behind, subtle parallax lift, glassy material.
+     Differs from glass via the big grounded shadow + thicker rounding.
+     vars: --ds-spatial-tint */
+  .ds-spatial{
+    --ds-spatial-tint:30,34,48;
+    background:rgba(var(--ds-spatial-tint),.55);
+    -webkit-backdrop-filter:blur(30px) saturate(140%);
+    backdrop-filter:blur(30px) saturate(140%);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:40px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.25),
+      0 40px 80px -20px rgba(0,0,0,.55),
+      0 10px 30px rgba(0,0,0,.35);
+    color:#fff;
+  }
+  .ds-btn.ds-spatial{ border-radius:999px; background:rgba(255,255,255,.16); }
+
+  /* 10 ── CLAYMORPHISM ───────────────────────────────────────────────
+     Puffy 3D clay: chunky radius, pastel fill, double INNER shadow
+     (one light, one dark) for the inflated look + a soft outer drop.
+     vars: --ds-clay-fill */
+  .ds-clay{
+    --ds-clay-fill:#7c6cff;
+    background:var(--ds-clay-fill); color:#fff; border:0;
+    border-radius:42px;
+    box-shadow:
+      inset 8px 8px 16px rgba(255,255,255,.35),
+      inset -8px -8px 16px rgba(0,0,0,.22),
+      0 18px 40px -8px color-mix(in srgb,var(--ds-clay-fill) 60%,#000);
+  }
+  .ds-btn.ds-clay{ border-radius:28px; }
+</style>

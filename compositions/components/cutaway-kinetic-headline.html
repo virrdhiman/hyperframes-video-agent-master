@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Cutaway Kinetic Headline</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /*
+        Cutaway Kinetic Headline — dark-overlay headline takeover for a b-roll beat.
+        A dark overlay drops over the footage and a centered word-by-word headline
+        punches in, with one accent "hero" word (country / brand / number) + optional
+        emoji + an accent (or tricolor) underline. The headline OWNS the beat (~60-70%
+        of the frame); hide your lower-third captions for its duration.
+
+        HOW TO USE in a root composition:
+          1) Mount full-frame:  <div data-composition-src="compositions/components/cutaway-kinetic-headline.html"
+                                     class="clip" data-start="<t>" data-duration="<dur>"
+                                     data-track-index="<above b-roll>"></div>
+             — OR copy the markup/CSS/JS inline (see docs/guides/SCENE_SNIPPETS.md →
+               "Cutaway Kinetic Headline").
+          2) Edit WORDS / HERO_INDEX / EMOJI / --accent / RULE_TRICOLOR below.
+          3) Hide captions across the FULL window overlap: skip any caption group where
+             (group.start < windowEnd && group.end > windowStart).
+
+        TWO GOTCHAS that cause a silent invisible bug:
+          • CSS z-index (NOT track-index) decides paint. A full-frame overlay over a
+            b-roll <video> must sit at a CSS z-index ABOVE the b-roll, or the video
+            paints on top and the scene is invisible — lint/inspect still pass.
+            (When mounted via data-composition-src the host controls stacking; when
+            copied inline give the wrapper an explicit z-index above your .broll.)
+          • Every tween is a span-only tl.fromTo/to at an ABSOLUTE time → seek-safe.
+            Never animate the .clip element's opacity/visibility; animate inner words.
+      */
+      :root { --accent: #ff9d3d; }              /* hero-word + (left) rule color */
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px; margin: 0; overflow: hidden; background: transparent;
+      }
+      #cutaway { position: relative; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+      .cutaway-dark {
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(124% 82% at 50% 42%, rgba(8,6,22,0.18) 0%, rgba(8,6,22,0.60) 60%, rgba(5,3,14,0.84) 100%),
+          linear-gradient(180deg, rgba(8,6,22,0.55) 0%, rgba(8,6,22,0.18) 30%, rgba(8,6,22,0.22) 68%, rgba(6,4,16,0.72) 100%);
+      }
+      .cutaway-wrap { position: absolute; top: 33%; left: 8%; right: 8%; text-align: center; }
+      .cutaway-row  { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 8px 22px; }
+      .cw {
+        display: inline-block; font-family: "Montserrat", system-ui, sans-serif;
+        font-weight: 900; font-size: 116px; line-height: 0.98; letter-spacing: -0.02em;
+        color: #fff; text-transform: uppercase;
+        text-shadow: 0 6px 30px rgba(6,4,18,0.85), 0 0 40px rgba(8,6,22,0.5);
+        opacity: 0; transform-origin: 50% 70%; will-change: transform, opacity;
+      }
+      .cw-hero {                                  /* the one accent word — biggest */
+        font-size: 206px; color: var(--accent);
+        text-shadow: 0 8px 34px rgba(120,50,0,0.6), 0 0 46px rgba(255,157,61,0.55);
+      }
+      .cw-emoji { display: inline-block; font-size: 116px; line-height: 1; opacity: 0; transform-origin: 50% 70%; }
+      .cutaway-rule {                             /* tricolor here; swap to a flat --accent bar for non-flag use */
+        height: 12px; width: 0; margin: 22px auto 0; border-radius: 6px;
+        background: linear-gradient(90deg, #ff9d3d 0%, #fff 50%, #138808 100%);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4); opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="cutaway"
+      data-composition-id="cutaway-kinetic-headline"
+      data-timeline-locked
+      data-start="0"
+      data-duration="2.8"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="cutaway-dark"></div>
+      <div class="cutaway-wrap">
+        <div class="cutaway-row" id="cwRow0"></div>
+        <div class="cutaway-row" id="cwRow1" style="margin-top:6px;"></div>
+        <div class="cutaway-rule" id="cwRule"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+
+        // ---- EDIT ME ------------------------------------------------------
+        // Word list + which row each word sits on (0 = top, 1 = bottom).
+        // Times are ABSOLUTE seconds within this 0-based component timeline.
+        var WORDS = [
+          { text: "Part",    row: 0, t: 0.10 },
+          { text: "that",    row: 0, t: 0.30 },
+          { text: "matters", row: 0, t: 0.54 },
+          { text: "for",     row: 1, t: 0.79 },
+          { text: "India",   row: 1, t: 0.96, hero: true },
+        ];
+        var EMOJI = "\uD83C\uDDEE\uD83C\uDDF3"; // 🇮🇳 — set to "" for none; appended to row 1
+        var EMOJI_T = 1.22;                      // emoji punch-in time
+        var RULE_T = 1.20, RULE_W = 560;         // underline draw start + width
+        var EXIT_T = 2.46;                       // headline fade-out (before the clip cut)
+        // -------------------------------------------------------------------
+
+        var tl = gsap.timeline({ paused: true });
+
+        WORDS.forEach(function (w, i) {
+          var span = document.createElement("span");
+          span.className = "cw" + (w.hero ? " cw-hero" : "");
+          span.id = "cw-" + i;
+          span.textContent = w.text.toUpperCase();
+          document.getElementById("cwRow" + (w.row || 0)).appendChild(span);
+
+          tl.fromTo(
+            "#cw-" + i,
+            { opacity: 0, y: 34, scale: w.hero ? 0.70 : 0.82, rotate: w.hero ? -3 : 0 },
+            { opacity: 1, y: 0, scale: 1, rotate: 0, duration: w.hero ? 0.44 : 0.32, ease: "back.out(2)", overwrite: "auto" },
+            w.t,
+          );
+          if (w.hero) {
+            tl.to("#cw-" + i, { scale: 1.05, duration: 0.7, ease: "sine.inOut", repeat: 1, yoyo: true, overwrite: "auto" }, w.t + 0.59);
+          }
+        });
+
+        if (EMOJI) {
+          var em = document.createElement("span");
+          em.className = "cw-emoji";
+          em.id = "cw-emoji";
+          em.textContent = EMOJI;
+          document.getElementById("cwRow1").appendChild(em);
+          tl.fromTo("#cw-emoji", { opacity: 0, scale: 0.4, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2.4)", overwrite: "auto" }, EMOJI_T);
+        }
+
+        tl.fromTo("#cwRule", { width: 0, opacity: 0 }, { width: RULE_W, opacity: 1, duration: 0.5, ease: "power3.out", overwrite: "auto" }, RULE_T);
+
+        var allIds = WORDS.map(function (_, i) { return "#cw-" + i; });
+        if (EMOJI) allIds.push("#cw-emoji");
+        allIds.push("#cwRule");
+        tl.to(allIds, { opacity: 0, y: -18, duration: 0.3, ease: "power2.in", overwrite: "auto" }, EXIT_T);
+
+        tl.seek(0);
+        window.__timelines["cutaway-kinetic-headline"] = tl;
+      })();
+    </script>
+  </body>
+</html>

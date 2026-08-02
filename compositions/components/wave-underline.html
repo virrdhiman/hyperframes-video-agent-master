@@ -1,0 +1,36 @@
+<!--
+  Wave Underline — a single animated SVG wave stroke. Use as an underline under a
+  caption word, or full-width at low opacity as a moving background ribbon.
+  Adapted (seek-safe) from "SVG wave animation" by elwinvdhazel
+  (codepen.io/elwinvdhazel/pen/yOmezz, MIT). Pure CSS stroke-dashoffset; one
+  variant (the original stacks several). Re-tinted warm.
+
+  Usage:
+    Underline → place <div class="wave-underline">…svg…</div> right under a word,
+      width ~ the word, height ~14px.
+    Background → set .wave-underline { opacity: .12; } full-bleed behind content.
+  Customize: --wave-c (stroke), --wave-dur (flow period), --wave-w (stroke width).
+-->
+<style>
+  .wave-underline { width: 100%; line-height: 0; }
+  .wave-underline svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .wave-underline path {
+    fill: none;
+    stroke: var(--wave-c, #CC785C);
+    stroke-width: var(--wave-w, 8);
+    stroke-linecap: round;
+    stroke-dasharray: 60 28;
+    animation: hf-wave-flow var(--wave-dur, 6s) linear infinite;
+  }
+  @keyframes hf-wave-flow {
+    to { stroke-dashoffset: -88; }  /* one dasharray period — seamless loop */
+  }
+</style>
+
+<!-- paste under a word:
+<div class="wave-underline">
+  <svg viewBox="0 0 300 24" preserveAspectRatio="none">
+    <path d="M0 12 Q 25 0 50 12 T 100 12 T 150 12 T 200 12 T 250 12 T 300 12" />
+  </svg>
+</div>
+-->

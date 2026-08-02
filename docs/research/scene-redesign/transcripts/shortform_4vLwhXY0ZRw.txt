@@ -1,0 +1,57 @@
+=== 4vLwhXY0ZRw : 320 segments ===
+[0:00] Animating text like this can be
+[0:12] this.
+[0:26] is not that complicated. You only have
+[0:38] first let's create a new composition.
+[0:51] new background. So right click new.
+[1:04] select the text tool and just click. And
+[1:17] up to you can use whatever font you
+[1:29] that we can see where we are placing our
+[1:43] going to animate its opacity.
+[1:56] want our text to appear from bottom.
+[2:10] go under the advanced option and there
+[2:24] are a couple of settings that you can
+[2:37] this very nice text popping up. And in
+[2:50] text and let's add some space. You can
+[3:02] that. If you want you can play around
+[3:15] animation property part. Now we can
+[3:28] Over there you will get access to the
+[3:40] primary motion which is this text
+[3:52] press S. Let's add a key frame and let's
+[4:06] little bit more. Now we can select these
+[4:20] let's say something like this. So here
+[4:33] frames far away, you can see now the
+[4:46] select this. Let's press Ctrl D and this
+[5:00] increase its size.
+[5:12] already applied because we are just
+[5:24] Now we can select these key frames,
+[5:36] play around with its timing. So it is
+[5:49] add more text as well. Let me just
+[6:03] just to have little bit of variation. So
+[6:17] instead of y value I'm going to set this
+[6:29] side like that.
+[6:43] change it again. So instead of making it
+[6:56] of delay.
+[7:09] a little bit big. So I'm going to press
+[7:24] at the bottom. Perfect. Now we can
+[7:36] scale key frame. And as soon as this
+[7:48] its easing. Now we can do one more
+[8:03] you can see we have this very subtle
+[8:15] For this one, we can like make it
+[8:27] let's select this text and let's press
+[8:39] color. Now I'm going to quickly align it
+[8:52] can select this. Press U. And right
+[9:10] Now we can align it somewhere around
+[9:22] tweak a little bit more. Let's open this
+[9:37] here.
+[9:50] So here we have the easing. Now if I
+[10:03] you can like keep on duplicating this
+[10:17] this more, we can do one more thing. So
+[10:33] This to be dark. This to be dark as
+[10:45] this. And let's apply
+[10:58] corner, let's set this to width and
+[11:11] There you go.
+[11:23] preview. And if I press play, you can
+[11:37] motion blur for the composition is also
+[11:51] in after effects using animation
+[12:04] only on Patreon. So make sure to check

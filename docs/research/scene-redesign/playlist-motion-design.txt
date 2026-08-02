@@ -1,0 +1,54 @@
+CURATED MOTION-DESIGN / ART-DIRECTION TEACHING VIDEOS
+(for the scene-redesign effort — fixing flat vector-in-void graphics)
+
+Tier A — downloaded + frame-sampled into grids/ (richest, watch first)
+------------------------------------------------------------------------
+1. "10 Underrated Motion Design Techniques I LOVE" — Ben Marriott
+   https://www.youtube.com/watch?v=a7Nyzqy9_I0
+   WHY: 15 seconds of finished animation reverse-engineered into 10 concrete,
+   codifiable techniques: gate-weave wiggle(12,3), posterize-time to 12fps for a
+   handmade feel, simple-choker edge rounding, arcing splash motion, eye-trace,
+   contrast-driven hierarchy, "show the result of an action." The single best
+   source of exact values we can paste into Remotion.
+
+2. "Designers Dissect The Graphic Design of DUNE" — Ben Marriott + Elliot
+   https://www.youtube.com/watch?v=uPefvc-sHhU
+   WHY: A 25-min running critique of ~40 posters/covers that names our exact
+   failure modes out loud — "so little depth," "feels so flat," "generic sans
+   serif," "minimalist that fails" — and what the EXPENSIVE versions do instead
+   (scale, gradient palettes, drop shadows, one accent color per item,
+   repeated-shape systems). The clearest map of cheap-vs-premium signals.
+
+3. "Advanced Lighting in After Effects" — Ben Marriott
+   https://www.youtube.com/watch?v=rdi0bPWqYyI
+   WHY: The literal recipe for making a flat vector sit inside a world:
+   desaturate to integrate, color-match with curves, 2px Gaussian blur to kill
+   vector crispness, add HLS grain/noise to flat fills, duplicate-layer soft
+   shadows with feathering + reduced opacity. Directly attacks "flat shape
+   floating in void."
+
+Tier B — transcript-reviewed, cited in the principles doc (no grid)
+------------------------------------------------------------------------
+4. "The ONLY Graphic Design Video On Space You Need To See!" — DesignCourse (Gareth David)
+   https://www.youtube.com/watch?v=3QJKOWTRuE4
+   WHY: The cleanest taxonomy of space we found: macro vs micro white space,
+   passive vs active white space, proximity grouping, and "negative space is not
+   white space." Turns "empty void" into "intentional negative space" with rules.
+
+5. "Designers Dissect the Most Unexpected Rebrands of 2023" — Ben Marriott + Linus Boman
+   https://www.youtube.com/watch?v=3cg8Cy6AKJg
+   WHY: Names the "re-blanding" trend (stripping all character to a generic sans
+   = the cheap default) and the construction-grid/golden-ratio satire. A
+   cautionary catalogue of what reads as lazy/template.
+
+6. "Why Your Animation Looks Bad (Fix Floaty Movements...)" — Robin (animator)
+   https://www.youtube.com/watch?v=-FHb6XFHyT4
+   WHY: Pose-to-pose planning, slow-in/slow-out, anticipation->action->reaction,
+   "no constant or purposeless movement," "white space = focus." Transferable to
+   motion-graphic choreography even though framed for character animation.
+
+Considered & dropped
+------------------------------------------------------------------------
+- ECAbrams / Roundtable "Why Your Animation Looks Bad" (F2PMXs87kmw):
+  3D fight-scene combat (squash/stretch, recoil, camera shake). Not relevant to
+  flat-graphics-in-void. Dropped after transcript review.

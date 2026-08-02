@@ -1,0 +1,87 @@
+=== 1hcNQyyZzm8 : 566 segments ===
+[0:01] in this video I'm going to show you how
+[0:14] as well as talking more generally about
+[0:26] animation you can view the entire
+[0:38] free project file okay let's get started
+[0:52] this composition is HD so to have a grid
+[1:06] the Ampersand or apostrophe key it will
+[1:25] this is also really handy for any matte
+[1:38] stroke with this sort of design it's
+[1:50] here's what you can do create a null
+[2:02] rename that slider stroke
+[2:16] multiply
+[2:28] unconstrain the proportions of your
+[2:42] this stroke expression onto any layers
+[2:55] but it wasn't designed to
+[3:07] right before the deadline but you
+[3:22] pre-comps we'll get to this later
+[3:35] mapping in my tutorial four tips for
+[3:48] longer figuring out what your design as
+[4:00] way especially when I'm working with
+[4:13] with a slider control named progress and
+[4:26] more General fun kinetic type thing with
+[4:40] these buttons in the graph editor and
+[4:52] definitely wanted to see if I could
+[5:04] the shadow on the text
+[5:16] tutorial
+[5:29] here's one I made earlier then to make
+[5:44] as long as the names of the layers the
+[5:57] the reason I'm having all these colors
+[6:10] the technique for these letters I've
+[6:23] all the elements are in a pre-comp
+[6:37] the right
+[6:50] the animation but I like it and it's my
+[7:02] here
+[7:17] to expand it and then set to silhouette
+[7:29] this one's pretty simple
+[7:43] then that comp is in this master
+[7:56] here
+[8:08] more than two colors but it's fine for
+[8:21] so one second four frames
+[8:35] the stroke widths of all the letters
+[8:49] control and I've renamed it stroke
+[9:02] we can actually just have this
+[9:17] so this is the expression linking to our
+[9:31] using terminal black typeface
+[9:44] are referencing
+[9:57] so in this case because the scale is 69
+[10:10] expression but that's not something we
+[10:23] different
+[10:35] and keyframe the master paths you can
+[10:48] I went well on this as you can view the
+[11:00] oh
+[11:14] are linear
+[11:27] depending on the project and what I'm
+[11:40] use the text as an alpha map
+[11:53] pre-comp like this you'll need to check
+[12:05] adjustment layers and it would also mean
+[12:18] Shadow off to the left
+[12:31] then I've used the same diagonal Shadow
+[12:45] is also referred to as eye trace or
+[12:58] look having a cursor or pointer on
+[13:11] experimented with having the curse and
+[13:24] pop this window off to one side or dock
+[13:38] time in your work area
+[13:50] and then making sure your cursor or
+[14:03] I deliberately left the smoothing at one
+[14:16] the smoothness and help reduce the
+[14:28] that's the great thing about motion
+[14:41] however if you wanted easing at the
+[14:55] because I wanted to see whether having
+[15:09] there's nothing else there apart from
+[15:22] simple there's no color or contrast in
+[15:34] issue we can pretty much take in both
+[15:48] helps pull the viewers eyes back to
+[16:00] speed up your workflow so we have this
+[16:13] before we come down here and again I
+[16:26] likely to grab our eyes than the
+[16:39] before it's on the left hand side of the
+[16:52] other animation starts
+[17:04] integrate since the animation as a whole
+[17:16] recorded myself attempting to rotate my
+[17:30] middle
+[17:42] 100 on the x-axis to flip it
+[17:55] process
+[18:09] button in and had one on top of the pen
+[18:21] lastly I duplicated the whole comp and
+[18:34] watching see you again soon

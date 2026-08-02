@@ -1,0 +1,45 @@
+<!--
+  Glow Border — rotating conic-gradient glow ring around any card/element.
+  Adapted (seek-safe) from "Magic Card" by gayane-gasparyan
+  (codepen.io/gayane-gasparyan/pen/jOmaBQK, MIT). Original used a Houdini
+  @property --rotate spin; rebuilt as a plain transform rotation so HyperFrames
+  seeks it deterministically. Re-tinted to the warm palette.
+
+  Usage: add class="glow-border" to the element you want to highlight.
+  Customize via CSS vars (set on the element or :root):
+    --glow-c1 / --glow-c2 : the two accent stops (default clay → sand)
+    --glow-radius         : corner radius (default 32px)
+    --glow-spin           : rotation period (default 4s; lower = faster)
+    --glow-thickness      : ring thickness in px (default 4)
+-->
+<style>
+  .glow-border {
+    position: relative;
+    border-radius: var(--glow-radius, 32px);
+    isolation: isolate;
+  }
+  .glow-border::before,
+  .glow-border::after {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--glow-thickness, 4px));
+    border-radius: inherit;
+    z-index: -1;
+    background: conic-gradient(
+      from 0deg,
+      var(--glow-c1, #CC785C),
+      var(--glow-c2, #D4A27F),
+      var(--glow-c1, #CC785C)
+    );
+    animation: hf-glow-spin var(--glow-spin, 4s) linear infinite;
+  }
+  /* soft bloom layer */
+  .glow-border::after {
+    inset: calc(-3 * var(--glow-thickness, 4px));
+    filter: blur(18px);
+    opacity: 0.55;
+  }
+  @keyframes hf-glow-spin {
+    to { transform: rotate(360deg); }
+  }
+</style>

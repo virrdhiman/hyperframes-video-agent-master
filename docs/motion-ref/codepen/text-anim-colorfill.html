@@ -1,0 +1,110 @@
+<!-- SOURCE: https://codepen.io/zitrusfrisch/pen/DbwjOR
+     TITLE: Animated text fill
+     LICENSE: MIT (public CodePen pen)
+     NOTE: motion REFERENCE — adapt to seek-safe HyperFrames form before use
+           (CSS keyframes: css-animations skill; JS/rAF: rebuild as paused GSAP tl) -->
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+  
+
+  <title>Animated text fill</title>
+
+    <link rel="canonical" href="https://codepen.io/zitrusfrisch/pen/DbwjOR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Neuton|Oswald'>
+  
+<style>
+body {
+  font: 400 1em/1.5 "Neuton";
+  background: #090d00;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 0;
+}
+
+p {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: inline-block;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+p span {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src="https://public.codepenassets.com/js/prefixfree-1.0.7.min.js"></script>
+
+  
+</head>
+
+<body translate="no">
+  <p>
+  Spice up your type with CSS
+  <span>
+    Animated text fill
+  </span>
+  &mdash; no JavaScript required &mdash;
+</p>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
+  
+</body>
+
+</html>

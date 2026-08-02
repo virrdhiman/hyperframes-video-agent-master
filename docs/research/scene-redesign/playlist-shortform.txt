@@ -1,0 +1,23 @@
+# Curated playlist — short-form vertical editing & kinetic typography
+# Format: TITLE — CHANNEL — URL — one-line why
+
+# --- Editing theory / pacing / retention (principle-driven) ---
+How To Make A Video Essay: Editing — Evan Puschak / Nerdwriter-style craft talk — https://www.youtube.com/watch?v=Z2z514tcwpc — Best principle source: rough-cut-to-fine-cut workflow, motivated b-roll, music to soundtrack pacing, on-screen circles/annotations to direct the eye.
+
+# --- Kinetic typography craft (on-screen technique to copy the LOOK, not the software) ---
+Top 5 Typography Techniques in After Effects | Kinetic Type — Motion design tutorial — https://www.youtube.com/watch?v=sN2GQ5tTKI0 — Shows 5 reusable text-motion patterns (scale-pop hold, scroll/marquee, typewriter mask reveal, 3D extrude pop, box-mask jump-out) that map directly to Remotion springs/sequences.
+Fun Kinetic Typography Animation | After Effects — Jake Bartlett-style — https://www.youtube.com/watch?v=1hcNQyyZzm8 — Stroke-writing + progress-driven word reveals; demonstrates sync of text to beat and graph-editor easing (= our spring damping choices).
+Typography Motion Graphics Animation #4 — kinetic type series — https://www.youtube.com/watch?v=4vLwhXY0ZRw — Cleanest demo of bottom-up opacity+position word-pop with motion blur; the baseline caption-reveal we should match.
+EASY Kinetic Typography in After Effects — quick-method — https://www.youtube.com/watch?v=l2868rcHXSw — Turbulent-displace / looping "alive" text, useful for keeping idle text breathing instead of static.
+
+# --- Caption / Hormozi-style spec references (article-grade, used for hard specs) ---
+# (Used for exact caption specs: Montserrat Bold, word-by-word, yellow active-word highlight, 1-3s shot length.)
+# https://riverside.com/blog/hormozi-style-videos
+# https://www.submagic.co/blog/how-to-make-alex-hormozi-captions
+# https://www.opus.pro/blog/youtube-shorts-hook-formulas
+
+# --- Retention / pacing principle references (article-grade) ---
+# https://air.io/en/youtube-hacks/advanced-retention-editing-cutting-patterns-that-keep-viewers-past-minute-8
+# https://www.visla.us/blog/guides/video-editing-pacing-what-it-is-and-how-to-control-it/
+# https://brandefy.com/psychology-of-video-editing/
+# https://air.io/en/youtube-hacks/editing-tricks-for-fast-paced-funny-videos

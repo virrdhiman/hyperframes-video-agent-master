@@ -1,0 +1,15 @@
+{
+  "name": "hf",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.6.76 preview",
+    "check": "npx --yes hyperframes@0.6.76 lint && npx --yes hyperframes@0.6.76 validate && npx --yes hyperframes@0.6.76 inspect && python3 tools/video_review/template_text_check.py",
+    "render": "npx --yes hyperframes@0.6.76 render",
+    "publish": "npx --yes hyperframes@0.6.76 publish"
+  },
+  "dependencies": {
+    "echarts": "^6.1.0",
+    "flint-chart": "^0.2.0"
+  }
+}

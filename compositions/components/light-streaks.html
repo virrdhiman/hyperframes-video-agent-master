@@ -1,0 +1,51 @@
+<!--
+  Light Streaks — sweeping light bars for a transition wipe or logo-outro accent.
+  Adapted (seek-safe) from the "lumières" layers of "Netflix Intro Animation Pure
+  CSS" by claudio_bonfati (codepen.io/claudio_bonfati/pen/mdryxPv, MIT).
+  NETFLIX-FREE: only the generic light-streak motion is reused — the Netflix logo
+  geometry/brand is intentionally NOT reproduced. Pure CSS, re-tinted warm.
+
+  Usage: drop <div class="light-streaks">…5 bars…</div> over the beat you want to
+  wipe/accent. Place it in a timed clip (data-start/data-duration) on its own track
+  so it fires at the transition. Bars sweep L→R once (forwards) by default.
+  Customize: --streak-c (color), --streak-dur (sweep time), --streak-angle.
+-->
+<style>
+  .light-streaks {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: rotate(var(--streak-angle, -18deg)) scale(1.4);
+    mix-blend-mode: screen;
+  }
+  .light-streaks i {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 12%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--streak-c, rgba(255, 240, 220, 0.9)),
+      transparent
+    );
+    filter: blur(6px);
+    transform: translateX(-120%);
+    animation: hf-streak-sweep var(--streak-dur, 0.9s) cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  }
+  .light-streaks i:nth-child(1) { left: 8%;  animation-delay: 0s;    opacity: 0.9; }
+  .light-streaks i:nth-child(2) { left: 26%; animation-delay: 0.06s; opacity: 0.7; width: 8%; }
+  .light-streaks i:nth-child(3) { left: 46%; animation-delay: 0.12s; opacity: 1;   width: 16%; }
+  .light-streaks i:nth-child(4) { left: 66%; animation-delay: 0.18s; opacity: 0.7; width: 8%; }
+  .light-streaks i:nth-child(5) { left: 84%; animation-delay: 0.24s; opacity: 0.9; }
+  @keyframes hf-streak-sweep {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(900%); }
+  }
+</style>
+
+<!-- paste this where the wipe should appear:
+<div class="light-streaks"><i></i><i></i><i></i><i></i><i></i></div>
+-->

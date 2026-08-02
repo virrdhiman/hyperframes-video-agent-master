@@ -1,0 +1,69 @@
+<!--
+  Orbit System — concentric rings with planets circling a glowing core. Ambient
+  background for "scale / universe-of-models / reach" beats or a no-face graphics
+  cut. Adapted (seek-safe) & slimmed from "Solar System animation - Pure CSS" by
+  kowlor (codepen.io/kowlor/pen/ZYYQoy, MIT). The original's orbit durations were
+  absurd (~1.8e9s = frozen); NORMALIZED here to 18–90s so motion reads in a short
+  clip and any seek lands on a deterministic angle. Re-tinted warm, flat 2D.
+
+  Usage: place <div class="orbit-system">…</div> as a full-bleed background layer
+  (z-index low, opacity ~.5–.9). Sits behind your content. Pure CSS.
+  Customize: --orbit-c (ring), --planet-c (dots), --core-c (center glow).
+-->
+<style>
+  .orbit-system {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .orbit-system .core {
+    position: absolute;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: radial-gradient(circle, var(--core-c, #CC785C), transparent 70%);
+    filter: blur(4px);
+    animation: hf-core-pulse 5s ease-in-out infinite;
+  }
+  .orbit-system .orbit {
+    position: absolute;
+    border: 1.5px solid var(--orbit-c, rgba(204,120,92,0.28));
+    border-radius: 50%;
+    animation: hf-orbit-spin linear infinite;
+  }
+  .orbit-system .orbit::before {
+    content: "";
+    position: absolute;
+    top: -7px; left: 50%;
+    width: 14px; height: 14px; margin-left: -7px;
+    border-radius: 50%;
+    background: var(--planet-c, #B05E42);
+    box-shadow: 0 0 16px var(--planet-c, #B05E42);
+  }
+  /* five normalized orbits */
+  .orbit-system .o1 { width: 260px;  height: 260px;  animation-duration: 18s; }
+  .orbit-system .o2 { width: 440px;  height: 440px;  animation-duration: 30s; }
+  .orbit-system .o3 { width: 640px;  height: 640px;  animation-duration: 48s; }
+  .orbit-system .o4 { width: 860px;  height: 860px;  animation-duration: 66s; }
+  .orbit-system .o5 { width: 1100px; height: 1100px; animation-duration: 90s; }
+  .orbit-system .o2::before { width: 18px; height: 18px; margin-left: -9px; }
+  .orbit-system .o4::before { width: 22px; height: 22px; margin-left: -11px; background: var(--orbit-c, #D4A27F); }
+
+  @keyframes hf-orbit-spin { to { transform: rotate(360deg); } }
+  @keyframes hf-core-pulse {
+    0%, 100% { transform: scale(1);    opacity: 0.9; }
+    50%      { transform: scale(1.18); opacity: 1; }
+  }
+</style>
+
+<!-- paste as a background layer:
+<div class="orbit-system">
+  <div class="core"></div>
+  <div class="orbit o1"></div>
+  <div class="orbit o2"></div>
+  <div class="orbit o3"></div>
+  <div class="orbit o4"></div>
+  <div class="orbit o5"></div>
+</div>
+-->

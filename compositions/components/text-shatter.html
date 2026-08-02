@@ -1,0 +1,66 @@
+<!--
+  Text Shatter — letters fly apart / snap together. For shock / "breaking a myth"
+  beats. Adapted from "Shattering Text Animation" by ARS
+  (codepen.io/ARS/pen/pjypwd, MIT). The original used GSAP 1.16 + jQuery + RANDOM
+  scatter (not render-safe). REBUILT here as pure deterministic CSS: a tiny one-shot
+  script splits the word into glyphs and assigns each a FIXED hash-based offset (no
+  Math.random, no rAF, no timers) into CSS vars; the motion is a CSS keyframe
+  HyperFrames seeks frame-by-frame.
+
+  Usage:
+    Assemble in  → <h1 class="text-shatter">MYTH BUSTED</h1>
+    Shatter out  → add class "out": <h1 class="text-shatter out">MYTH</h1>
+  Place in a timed clip so it fires on the beat. Customize:
+    --shatter-dur (default 0.9s), --shatter-spread (px, default 600),
+    --shatter-stagger (s per glyph, default 0.02).
+-->
+<style>
+  .text-shatter { display: inline-block; }
+  .text-shatter .g {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform, opacity;
+  }
+  .text-shatter .g {
+    animation: hf-shatter-in var(--shatter-dur, 0.9s) cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .text-shatter.out .g {
+    animation-name: hf-shatter-out;
+  }
+  @keyframes hf-shatter-in {
+    0%   { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0); opacity: 0; }
+    100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; }
+  }
+  @keyframes hf-shatter-out {
+    0%   { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0); opacity: 0; }
+  }
+</style>
+
+<script>
+  (function () {
+    // deterministic hash in [0,1) — NO Math.random (seek-safe / reproducible)
+    function h(i, s) {
+      var x = Math.sin(i * 12.9898 + s * 78.233) * 43758.5453;
+      return x - Math.floor(x);
+    }
+    document.querySelectorAll(".text-shatter").forEach(function (el) {
+      if (el.dataset.hfShattered) return;
+      el.dataset.hfShattered = "1";
+      var spread = parseFloat(getComputedStyle(el).getPropertyValue("--shatter-spread")) || 600;
+      var step = parseFloat(getComputedStyle(el).getPropertyValue("--shatter-stagger")) || 0.02;
+      var chars = el.textContent.split("");
+      el.textContent = "";
+      chars.forEach(function (ch, i) {
+        var span = document.createElement("span");
+        span.className = "g";
+        span.textContent = ch;
+        span.style.setProperty("--tx", ((h(i, 1) * 2 - 1) * spread).toFixed(1) + "px");
+        span.style.setProperty("--ty", ((h(i, 2) * 2 - 1) * spread).toFixed(1) + "px");
+        span.style.setProperty("--rot", ((h(i, 3) * 2 - 1) * 540).toFixed(1) + "deg");
+        span.style.animationDelay = (i * step).toFixed(3) + "s";
+        el.appendChild(span);
+      });
+    });
+  })();
+</script>

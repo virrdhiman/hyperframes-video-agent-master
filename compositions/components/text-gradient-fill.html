@@ -1,0 +1,35 @@
+<!--
+  Text Gradient Fill — a moving gradient/texture flows through the letterforms.
+  Adapted (seek-safe) from "Animated text fill" by zitrusfrisch
+  (codepen.io/zitrusfrisch/pen/DbwjOR, MIT). The original panned an EXTERNAL PNG
+  (i.ibb.co) through background-clip:text — replaced here with a local CSS gradient
+  (no network dep, render-safe). Swap the gradient for any palette or a tiling
+  texture from assets/common/overlays/ via the --fill-image var.
+
+  Usage: add class="text-gradient-fill" to a big heading/hook word.
+  Customize:
+    --fill-image : the moving fill (default warm clay→sand→cream gradient)
+    --fill-dur   : pan period (default 6s)
+    --fill-size  : background size (default 200% — bigger = slower visual travel)
+-->
+<style>
+  .text-gradient-fill {
+    background-image: var(
+      --fill-image,
+      linear-gradient(115deg, #CC785C, #D4A27F, #F5F1E8, #D4A27F, #CC785C)
+    );
+    background-size: var(--fill-size, 200%) auto;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: hf-fill-pan var(--fill-dur, 6s) linear infinite;
+  }
+  @keyframes hf-fill-pan {
+    to { background-position: 200% 50%; }
+  }
+</style>
+
+<!-- e.g. <h1 class="text-gradient-fill">95%</h1>
+     code-themed fill: style="--fill-image:url('assets/common/overlays/code.png');--fill-size:auto" -->

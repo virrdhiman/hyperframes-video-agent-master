@@ -1,0 +1,38 @@
+=== l2868rcHXSw : 213 segments ===
+[0:00] hello everyone and welcome to another
+[0:13] using Adobe After Effects but before we
+[0:25] to create a dynamic rhythm in the design
+[0:40] simpler than you might think so stick
+[0:55] pixels for a nice Square aspect ratio
+[1:09] timeline and select new solid name it
+[1:21] organized quick tip you can quickly
+[1:35] select the type tool and write something
+[1:48] with the weights and styles to create
+[2:00] distort turbulent displace this effect
+[2:13] displacement this shifts the elements of
+[2:25] without overly distorting the text and
+[2:39] know I love using Expressions to make
+[2:52] next to Evolution this opens the
+[3:05] specifying that we want the evolution to
+[3:19] duration divided by Loop count semicolon
+[3:32] that drives our effect over time so
+[3:44] duration close parentheses percent 360
+[3:56] over each Loop cycle the modulo operator
+[4:09] evolution value to drive the evolution
+[4:22] animation Pro tip if you want even more
+[4:35] without diving back into the
+[4:49] above and the other below the original
+[5:03] you can control the loop motion on all
+[5:16] created one selected right click and
+[5:28] 3D look
+[5:42] distance to zero so the shadow sits
+[5:55] effects time echo in the Echo settings
+[6:08] illusion we're aiming for this is due to
+[6:20] 0.0165 Comma just by dividing it for two
+[6:33] smoothly and the 3D illusion is back on
+[6:46] compelling 3d effect along the way
+[6:59] don't let the creativity stop here feel
+[7:12] different fonts weights and colors to
+[7:24] endless when you let your creativity
+[7:37] see what you've created if you share
+[7:50] tutorial and that's it thank you so much
