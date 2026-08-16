@@ -94,3 +94,10 @@ projects/**/_*.sh
 projects/**/_*.txt
 projects/**/_*.js
 projects/**/_*.py
+
+# added by UPLOAD-ALL-REPOS
+Thumbs.db
+*.pyc
+.next/
+dist/
+build/
