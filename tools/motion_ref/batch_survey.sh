@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # Quick survey: generate standard grids for a downloaded reference video.
 # Usage: ./tools/motion_ref/batch_survey.sh assets/inspo/motion-ref-Guufmu3rIx4/reference.mp4
 

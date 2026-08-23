@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # frame_strip.sh — produce a side-by-side comparison strip from two videos.
 #
 # Used to debug failing render_diff.sh runs visually: pick a sample timestamp

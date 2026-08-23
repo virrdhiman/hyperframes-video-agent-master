@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # Export PNG stills from AIStylistMain-v1 for tuning OUTFIT_SCENE6_BEATS / OUTFIT_PAN_X_MUL
 # in src/AIStylistMain_v1.tsx. Requires: npx remotion (from repo root).
 set -euo pipefail

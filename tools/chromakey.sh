@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # ────────────────────────────────────────────────────────────────────────────
 # chromakey.sh — green-screen MP4 → VP9 WebM with embedded alpha
 #

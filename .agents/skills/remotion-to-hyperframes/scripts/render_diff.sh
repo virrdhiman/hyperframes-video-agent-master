@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # render_diff.sh — compute per-frame SSIM between two video files.
 #
 # The eval primitive for the remotion-to-hyperframes skill: given a Remotion

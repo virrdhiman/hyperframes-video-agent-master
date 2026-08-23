@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # Builds a minimal copy of the repo for upload (subset of compositions + assets).
 # Usage (from anywhere):  bash tools/export/pack_lite_bundle.sh
 # Override output dir:      LITE_EXPORT_DIR=my-bundle bash tools/export/pack_lite_bundle.sh

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # ────────────────────────────────────────────────────────────────────────────
 # preview.sh — render only a slice of a composition for fast iteration.
 #

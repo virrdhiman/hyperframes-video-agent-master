@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# PRJs runner | platform: mac | scope: repo-local
 # smoke.sh — exercise the eval harness scripts against synthetic inputs.
 #
 # Generates two synthetic videos with ffmpeg's testsrc filter, runs render_diff
