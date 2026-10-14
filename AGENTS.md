@@ -94,3 +94,7 @@ npx hyperframes render -c index.html -o out/video.mp4
 4. All media lives under the project root (`assets/...`), referenced by relative path — external
    CDN URLs break renders.
 5. Run `npm run check` and fix all errors before considering any change complete.
+
+## Pull request workflow
+
+All changes go through a pull request: create a branch, open a PR, never push directly to the default branch.
