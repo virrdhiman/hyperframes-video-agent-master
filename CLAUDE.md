@@ -113,3 +113,7 @@ Fix all errors before presenting the result. Inspect warnings should be reviewed
 4. Videos use `muted` with a separate `<audio>` element for the audio track
 5. Sub-compositions use `data-composition-src="compositions/file.html"` to reference other HTML files
 6. Only deterministic logic — no `Date.now()`, no `Math.random()`, no network fetches
+
+## Pull request workflow
+
+All changes go through a pull request: create a branch, open a PR, never push directly to the default branch.
